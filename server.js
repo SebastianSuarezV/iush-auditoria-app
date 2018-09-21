@@ -322,6 +322,6 @@ app.post('/auditorias', (req, res) => {
 });
 
 // Start app
-app.listen(3000, () => {
+app.listen(process.env.PORT || 8888, () => {
     console.log(`Listening on port 3000`);
 });
