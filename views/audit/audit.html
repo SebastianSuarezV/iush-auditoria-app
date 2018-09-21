@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/audit/style.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron my-5 mx-5">
+            <h1 class="display-4">Auditoria</h1>
+            <p class="lead">Por favor ingrese los datos necesario para comenzar la auditoria</p>
+            <br>
+
+            <div class="row">
+                <div class="col">
+                    <form action="/auditorias" method="POST">
+                        <div class="form-group">
+                            <label for="ControlSelect1">Norma</label>
+                            <select class="form-control" id="rules-content" name="rule">
+                                <option>1</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eControlSelect2">Empresa</label>
+                            <select class="form-control" id="companies-content" name="company">
+                                <option>1</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eControlSelect2">Objetivo</label>
+                            <input class="form-control" type="text" name="objective" id="objective-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eControlSelect2">Auditado</label>
+                            <input class="form-control" type="text" name="audited" id="audited-input">                            
+                        </div>
+
+
+                        <div class="row">
+                            <br>
+                            <div class="col-md-10">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>PREGUNTA</th>
+                                            <th>RESPUESTA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="questions-content">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row text-center my-5">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Guardar</a>
+                            </div>
+                            <div class="col">
+                                <a href="/" class="btn btn-primary">Atrás</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="/audit/script.js"></script>
+</body>
+
+</html>
