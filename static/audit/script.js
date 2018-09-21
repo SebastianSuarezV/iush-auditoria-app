@@ -14,11 +14,11 @@ $(function () {
     $("#rules-content").empty();
     $("#companies-content").empty();
 
-    $.getJSON("http://https://iush-auditoria-app.herokuapp.com:3000/api/normas", function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/normas", function (data) {
         $("#rules-content").append(generateTableContent(data));
     });
 
-    $.getJSON("http://https://iush-auditoria-app.herokuapp.com:3000/api/empresas", function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/empresas", function (data) {
         $("#companies-content").append(generateTableContent(data));
     });
 
@@ -41,7 +41,7 @@ function generateTableContent(data) {
 function getQuestions(id) {
 
     $("#questions-content").empty();
-    $.getJSON("http://https://iush-auditoria-app.herokuapp.com:3000/api/preguntas?id=" + id, function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/preguntas?id=" + id, function (data) {
 
         var items = [];
         $.each(data, function (key, val) {
