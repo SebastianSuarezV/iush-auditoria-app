@@ -29,7 +29,7 @@ $(function() {
     var auditoria = getUrlParameter('auditoria');
     
     
-    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/auditorias/" + auditoria, function (result) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.com/api/auditorias/" + auditoria, function (result) {
         console.log(result);
         $("#audit-info").append("Resultados en <strong>" + result[0].norma + "</strong> para <strong>" + result[0].empresa + "</strong>. Auditado por <strong>" + result[0].auditor + "</strong>");
         $("#audit-info").append("</br><strong>Auditado: </strong>" + result[0].auditado);

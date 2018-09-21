@@ -10,15 +10,15 @@ $(function () {
     $("#companies-content").empty();
     $("#audits-content").empty();
 
-    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/normas", function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.com/api/normas", function (data) {
         $("#rules-content").append(generateTableContent(data));
     });
 
-    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/empresas", function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.com/api/empresas", function (data) {
         $("#companies-content").append(generateTableContent(data));
     });
 
-    $.getJSON("https://iush-auditoria-app.herokuapp.comapi/auditorias", function (data) {
+    $.getJSON("https://iush-auditoria-app.herokuapp.com/api/auditorias", function (data) {
         $("#audits-content").append(generateTableContent(data));
     });
 
@@ -40,7 +40,7 @@ function generateTableContent(data) {
             }
         });
         if(val.auditor != undefined) {
-            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.comresultados?auditoria=" + val.ID + "'>Ver resultados de la auditoria</a></td>";
+            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.com/resultados?auditoria=" + val.ID + "'>Ver resultados de la auditoria</a></td>";
         }
         
         
