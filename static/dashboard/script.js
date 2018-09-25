@@ -40,8 +40,8 @@ function generateTableContent(data) {
             }
         });
         if(val.auditor != undefined) {
-            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.com/resultados?auditoria=" + val.ID + "'>Ver resultados de la auditoria</a></td>";
-            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.com/respuestas?auditoria=" + val.ID + "'>Ver respuestas</a></td>";
+            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.com/resultados?auditoria=" + val.ID + "'>Ver</a></td>";
+            rowContent += "<td><a class='btn btn-primary' href='https://iush-auditoria-app.herokuapp.com/respuestas?auditoria=" + val.ID + "'>Ver</a></td>";
         }
         
         
