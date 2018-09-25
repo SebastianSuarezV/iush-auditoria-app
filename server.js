@@ -191,7 +191,7 @@ app.get('/api/auditorias', (req, res) => {
         FROM auditorias
         INNER JOIN usuarios u on auditorias.auditor_id = u.ID
         INNER JOIN empresas e on auditorias.empresa_id = e.ID
-        INNER JOIN normas n on auditorias.norma_id = n.ID;`, (err, rows, fields) => {
+        INNER JOIN normas n on auditorias.norma_id = n.ID WHERE auditor_id = ?;`, [req.session.passport.user], (err, rows, fields) => {
             if (err) {
                 return res.send(err);
             }
@@ -316,6 +316,37 @@ app.post('/auditorias', (req, res) => {
 
         });
 
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/respuestas', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.sendFile(path.join(__dirname, "views/answers/answers.html"));
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/api/respuestas/:id', (req, res) => {
+    if (req.isAuthenticated()) {
+        console.log(req);
+        connection.query(`
+        SELECT r.ID,
+       p.texto,
+       (CASE
+          WHEN r.repuesta = 0 THEN 'N/A'
+          WHEN r.repuesta = 1 THEN 'NO'
+          WHEN r.repuesta = 2 THEN 'SI' END) AS respuesta
+        FROM respuestas r
+       LEFT JOIN preguntas p ON p.ID = r.pregunta_id WHERE r.auditoria_id = ? ORDER BY r.pregunta_id;
+       `, [req.params.id], (err, rows, fields) => {
+            if (err) {
+                return res.send(err);
+            }
+            return res.send(rows);
+        });
     } else {
         res.redirect('/login');
     }
