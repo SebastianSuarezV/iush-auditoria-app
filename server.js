@@ -333,8 +333,7 @@ app.get('/api/respuestas/:id', (req, res) => {
     if (req.isAuthenticated()) {
         console.log(req);
         connection.query(`
-        SELECT r.ID,
-       p.texto,
+        SELECT r.ID,       p.texto,
        (CASE
           WHEN r.repuesta = 0 THEN 'N/A'
           WHEN r.repuesta = 1 THEN 'NO'
@@ -344,7 +343,9 @@ app.get('/api/respuestas/:id', (req, res) => {
        `, [req.params.id], (err, rows, fields) => {
             if (err) {
                 return res.send(err);
+                console.log(err);
             }
+            console.log(rows);
             return res.send(rows);
         });
     } else {
